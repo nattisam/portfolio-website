@@ -8,6 +8,6 @@ export const siteConfig = {
 export const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Projects', href: '/projects' },
-  { name: 'About', href: '/#about' },
+  { name: 'About', href: '/about' },
 ] as const
 

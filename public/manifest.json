@@ -1,0 +1,27 @@
+{
+  "name": "Nathan Samson - Systems Architect Portfolio",
+  "short_name": "NS Portfolio",
+  "description": "Portfolio showcasing systems architecture, engineering excellence, and innovative solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00f5ff",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "technology", "architecture"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple-touch-icon"
+    }
+  ]
+}

@@ -40,11 +40,15 @@ export function Button({
 
   if (href) {
     return (
-      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <Link href={href} className={classes}>
+      <Link href={href}>
+        <motion.div
+          className={classes}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
           {children}
-        </Link>
-      </motion.div>
+        </motion.div>
+      </Link>
     )
   }
 

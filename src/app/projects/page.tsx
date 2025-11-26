@@ -4,22 +4,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Card } from '@/ui/card'
 import { Button } from '@/ui/button'
+import { projects, getStatusColor } from '@/lib/projects'
 
 export default function ProjectsPage() {
-  const projects = [
-    {
-      id: 'project-1',
-      title: 'Distributed System Architecture',
-      description: 'A comprehensive case study on building scalable distributed systems.',
-      tags: ['Architecture', 'Scalability', 'Cloud'],
-    },
-    {
-      id: 'project-2',
-      title: 'Microservices Platform',
-      description: 'Design and implementation of a robust microservices platform.',
-      tags: ['Microservices', 'Kubernetes', 'DevOps'],
-    },
-  ]
 
   return (
     <div className="container mx-auto px-4 py-16 lg:px-8">
@@ -47,24 +34,40 @@ export default function ProjectsPage() {
             >
               <Card className="h-full hover:neon-border transition-all duration-300 flex flex-col">
                 <div className="p-6 flex-1 flex flex-col">
-                  <h2 className="text-2xl font-semibold mb-3 text-accent">
-                    {project.title}
-                  </h2>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className={`w-3 h-3 rounded-full ${getStatusColor(project.status)} animate-pulse`}></div>
+                    <h2 className="text-2xl font-semibold text-accent">
+                      {project.displayName}
+                    </h2>
+                  </div>
                   <p className="text-foreground-muted mb-4 flex-1">
-                    {project.description}
+                    {project.shortDescription}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
+                    {project.techStack.slice(0, 4).map((tech) => (
                       <span
-                        key={tag}
+                        key={tech}
                         className="px-3 py-1 text-xs rounded-full bg-background-tertiary text-foreground-muted border border-border"
                       >
-                        {tag}
+                        {tech}
                       </span>
                     ))}
+                    {project.techStack.length > 4 && (
+                      <span className="px-3 py-1 text-xs rounded-full bg-background-tertiary text-foreground-muted border border-border">
+                        +{project.techStack.length - 4} more
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(project.status)} text-white`}>
+                      {project.status}
+                    </span>
+                    <span className="text-xs text-foreground-muted capitalize">
+                      {project.category}
+                    </span>
                   </div>
                   <Button
-                    href={`/projects/${project.id}`}
+                    href={project.caseStudyUrl}
                     variant="ghost"
                     className="w-full"
                   >

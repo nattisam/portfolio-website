@@ -51,9 +51,113 @@ const config: Config = {
           '100%': { opacity: '1' },
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#e4e4e7',
+            maxWidth: 'none',
+            a: {
+              color: '#00f5ff',
+              textDecoration: 'none',
+              '&:hover': {
+                color: '#7c3aed',
+                textDecoration: 'underline',
+              },
+            },
+            h1: {
+              color: '#e4e4e7',
+              fontWeight: '700',
+              fontSize: '2.5rem',
+              lineHeight: '1.1',
+            },
+            h2: {
+              color: '#e4e4e7',
+              fontWeight: '600',
+              fontSize: '2rem',
+              lineHeight: '1.2',
+            },
+            h3: {
+              color: '#e4e4e7',
+              fontWeight: '600',
+              fontSize: '1.5rem',
+              lineHeight: '1.3',
+            },
+            h4: {
+              color: '#e4e4e7',
+              fontWeight: '600',
+            },
+            strong: {
+              color: '#e4e4e7',
+              fontWeight: '600',
+            },
+            code: {
+              color: '#00f5ff',
+              backgroundColor: '#0f0f0f',
+              border: '1px solid #27272a',
+              borderRadius: '0.375rem',
+              padding: '0.125rem 0.375rem',
+              fontSize: '0.875rem',
+            },
+            pre: {
+              backgroundColor: '#0f0f0f',
+              border: '1px solid #27272a',
+              borderRadius: '0.5rem',
+              padding: '1.5rem',
+              overflow: 'auto',
+            },
+            blockquote: {
+              color: '#a1a1aa',
+              borderLeftColor: '#00f5ff',
+              borderLeftWidth: '4px',
+              backgroundColor: '#0f0f0f',
+              padding: '1rem 1.5rem',
+              margin: '2rem 0',
+              borderRadius: '0 0.5rem 0.5rem 0',
+            },
+            ul: {
+              listStyleType: 'none',
+              paddingLeft: '0',
+            },
+            li: {
+              position: 'relative',
+              paddingLeft: '1.5rem',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                left: '0',
+                top: '0.5rem',
+                width: '0.5rem',
+                height: '0.5rem',
+                backgroundColor: '#00f5ff',
+                borderRadius: '50%',
+              },
+            },
+            table: {
+              borderColor: '#27272a',
+              borderCollapse: 'collapse',
+              width: '100%',
+              margin: '2rem 0',
+            },
+            th: {
+              border: '1px solid #27272a',
+              padding: '0.75rem',
+              textAlign: 'left',
+              backgroundColor: '#0f0f0f',
+              fontWeight: '600',
+            },
+            td: {
+              border: '1px solid #27272a',
+              padding: '0.75rem',
+              backgroundColor: '#0a0a0f',
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
 export default config
 

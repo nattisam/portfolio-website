@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mermaid diagram styling for dark theme */
+.mermaid {
+  background: transparent !important;
+}
+
+.mermaid .node {
+  fill: #374151 !important;
+  stroke: #6366f1 !important;
+}
+
+.mermaid .edgePath path {
+  stroke: #6366f1 !important;
+}
+
+.mermaid .edgeLabel {
+  background: transparent !important;
+  color: #f3f4f6 !important;
+}
+
+/* Syntax highlighting for code blocks */
+.hljs {
+  background: transparent !important;
+  color: #f3f4f6 !important;
+}
+
+.hljs-keyword {
+  color: #818cf8 !important;
+}
+
+.hljs-string {
+  color: #34d399 !important;
+}
+
+.hljs-comment {
+  color: #6b7280 !important;
+}
+
+.hljs-function {
+  color: #fbbf24 !important;
+}
+
 @layer base {
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
@@ -15,33 +56,111 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+    font-family: var(--font-inter);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
+  /* Performance optimizations */
+  * {
+    /* Improve rendering performance */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+
+  p {
+    @apply text-foreground-muted leading-relaxed;
+    margin-bottom: 1.5rem;
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-background-secondary;
+    @apply bg-transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-border-light rounded-full;
+    @apply bg-border rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-accent/30;
+    @apply bg-accent/50;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-accent/20 text-accent;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute left-4 top-4 z-50 bg-accent text-background px-4 py-2 rounded-md text-sm font-medium transform -translate-y-full focus:translate-y-0 transition-transform;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --background: #000000;
+      --background-secondary: #1a1a1a;
+      --background-tertiary: #2a2a2a;
+      --foreground: #ffffff;
+      --foreground-muted: #cccccc;
+      --border: #ffffff;
+      --border-light: #cccccc;
+      --accent: #00ffff;
+      --accent-secondary: #ff00ff;
+      --accent-tertiary: #ffff00;
+    }
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-secondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary;
+  }
+
+  .text-gradient-vertical {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-accent to-accent-secondary;
   }
 
   .glow-text {
@@ -54,6 +173,31 @@
     @apply border border-accent/30;
     box-shadow: 0 0 10px rgba(0, 245, 255, 0.2),
                 inset 0 0 10px rgba(0, 245, 255, 0.1);
+  }
+
+  .glass-effect {
+    @apply bg-background/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(124, 58, 237, 0.1));
+    border-radius: inherit;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.3), rgba(124, 58, 237, 0.3));
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
   }
 }
 

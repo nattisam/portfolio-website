@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="16" fill="#0a0a0f"/>
+  <!-- N letter -->
+  <path d="M8 8h2v10h6V8h2v16h-2v-6H10v6H8V8z" fill="#00f5ff"/>
+  <!-- S letter -->
+  <path d="M18 8h6c.5 0 1 .5 1 1v2c0 .5-.5 1-1 1h-4v2h4c.5 0 1 .5 1 1v2c0 .5-.5 1-1 1h-6v-2h4v-2h-4v-2h4V9h-4V8z" fill="#7c3aed"/>
+  <!-- Accent dot -->
+  <circle cx="16" cy="16" r="1.5" fill="#ec4899"/>
+</svg>
