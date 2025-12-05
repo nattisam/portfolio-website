@@ -50,17 +50,17 @@ export default function NotFound() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90">
-            <Link href="/" className="flex items-center gap-2">
+          <Button href="/" size="lg" className="bg-accent hover:bg-accent/90">
+            <span className="flex items-center gap-2">
               <Home className="w-5 h-5" />
               Back to Home
-            </Link>
+            </span>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/projects" className="flex items-center gap-2">
+          <Button href="/projects" variant="secondary" size="lg">
+            <span className="flex items-center gap-2">
               <Search className="w-5 h-5" />
               View Projects
-            </Link>
+            </span>
           </Button>
         </motion.div>
 

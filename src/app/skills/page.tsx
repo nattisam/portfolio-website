@@ -263,9 +263,9 @@ export default function SkillsPage() {
               >
                 <Card className="p-6 hover:border-accent/50 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                      <span className="text-accent font-bold text-sm">Award</span>
-                    </div>
+                  <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold text-xs">Award</span>
+                  </div>
                     <div>
                       <h3 className="font-semibold text-foreground">{achievement.title}</h3>
                       <p className="text-sm text-accent">{achievement.year}</p>
