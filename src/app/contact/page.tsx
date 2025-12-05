@@ -55,7 +55,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-5xl md:text-7xl font-bold mb-6 text-gradient"
             >
-              Let's Connect
+              Let&apos;s Connect
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -216,7 +216,7 @@ export default function ContactPage() {
 
               <div className="bg-background-tertiary border border-border rounded-2xl p-8">
                 <h3 className="text-xl font-bold text-foreground mb-4">
-                  What I'm Looking For
+                  What I&apos;m Looking For
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                   <div>
@@ -260,16 +260,16 @@ export default function ContactPage() {
             <div className="space-y-6">
               {[
                 {
-                  question: "What's your typical response time?",
+                  question: "What&apos;s your typical response time?",
                   answer: "I aim to respond to all inquiries within 24-48 hours. For urgent technical discussions, I can often respond much faster."
                 },
                 {
                   question: "Do you work with international clients?",
-                  answer: "Absolutely! I've worked with teams across multiple time zones and continents. Remote collaboration is my preference."
+                  answer: "Absolutely! I&apos;ve worked with teams across multiple time zones and continents. Remote collaboration is my preference."
                 },
                 {
                   question: "What types of projects interest you most?",
-                  answer: "I'm particularly interested in scalable system architecture, DevOps transformations, and projects that push technical boundaries."
+                  answer: "I&apos;m particularly interested in scalable system architecture, DevOps transformations, and projects that push technical boundaries."
                 }
               ].map((faq, index) => (
                 <motion.div

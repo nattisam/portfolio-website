@@ -286,7 +286,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                       className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-3 flex items-center justify-center gap-2"
                     >
                       <Sparkles className="w-6 h-6 text-cyan-400" />
-                      Let's Connect
+                      Let&apos;s Connect
                       <Sparkles className="w-6 h-6 text-purple-400" />
                     </motion.h2>
                     <motion.p
@@ -295,7 +295,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                       transition={{ delay: 0.9 }}
                       className="text-slate-300 mb-6 text-lg max-w-2xl mx-auto"
                     >
-                      Interested in working together? I'd love to hear about your project and explore how we can create something amazing.
+                      Interested in working together? I&apos;d love to hear about your project and explore how we can create something amazing.
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}

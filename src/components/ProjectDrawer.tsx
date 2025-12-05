@@ -23,9 +23,10 @@ interface ProjectDrawerProps {
 }
 
 export default function ProjectDrawer({ isOpen, onClose, project }: ProjectDrawerProps) {
-  if (!project) return null
   const [lightboxImage, setLightboxImage] = useState<string | StaticImageData | undefined>(undefined)
   const [imageLoading, setImageLoading] = useState(true)
+
+  if (!project) return null
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {

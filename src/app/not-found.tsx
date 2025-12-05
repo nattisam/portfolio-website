@@ -38,8 +38,8 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-xl text-foreground-muted mb-8 leading-relaxed"
           >
-            The page you're looking for doesn't exist or has been moved.
-            Let's get you back to exploring my work.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved.
+            Let&apos;s get you back to exploring my work.
           </motion.p>
         </motion.div>
 

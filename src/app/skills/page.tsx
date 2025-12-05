@@ -264,7 +264,7 @@ export default function SkillsPage() {
                 <Card className="p-6 hover:border-accent/50 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                      <span className="text-accent font-bold text-sm">🏆</span>
+                      <span className="text-accent font-bold text-sm">Award</span>
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">{achievement.title}</h3>
@@ -292,7 +292,7 @@ export default function SkillsPage() {
             <h2 className="text-3xl font-bold mb-6">Continuous Learning</h2>
             <p className="text-xl text-foreground-muted mb-12 leading-relaxed">
               Technology evolves rapidly, and I stay current by continuously learning and adapting.
-              Here are some areas I'm currently exploring and improving upon.
+              Here are some areas I&apos;m currently exploring and improving upon.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

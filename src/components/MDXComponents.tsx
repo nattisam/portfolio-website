@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import Image from 'next/image'
 import { Card } from '@/ui/card'
 import { Button } from '@/ui/button'
 
@@ -148,20 +149,28 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
 
     // Image wrapper for screenshots
-    img: ({ alt, ...props }) => (
-      <figure className="mb-6">
-        <img
-          className="w-full rounded-lg border border-border shadow-lg"
-          alt={alt}
-          {...props}
-        />
-        {alt && (
-          <figcaption className="text-center text-sm text-foreground-muted mt-2 italic">
-            {alt}
-          </figcaption>
-        )}
-      </figure>
-    ),
+    img: ({ alt, src, width, height, ...props }) => {
+      const fallbackWidth = typeof width === 'number' ? width : 1200
+      const fallbackHeight = typeof height === 'number' ? height : 675
+      return (
+        <figure className="mb-6">
+          <Image
+            src={src as string}
+            alt={alt || ''}
+            width={fallbackWidth}
+            height={fallbackHeight}
+            sizes="100vw"
+            className="w-full rounded-lg border border-border shadow-lg object-contain"
+            {...props}
+          />
+          {alt && (
+            <figcaption className="text-center text-sm text-foreground-muted mt-2 italic">
+              {alt}
+            </figcaption>
+          )}
+        </figure>
+      )
+    },
 
     ...components,
   }
