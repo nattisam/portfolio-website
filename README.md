@@ -1,4 +1,4 @@
-# Nathan Samson – Systems Architect Portfolio
+# Nathan Samson – Software Engineer Portfolio
 
 A modern, futuristic portfolio website built with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and MDX.
 
