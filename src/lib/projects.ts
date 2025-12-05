@@ -1,12 +1,18 @@
+import type { StaticImageData } from 'next/image'
+
+import genbegnaSs1 from '@/lib/images/projects/genbegna/genbegna-ss1.png'
+import genbegnaSs2 from '@/lib/images/projects/genbegna/genbegna-ss2.png'
+import genbegnaSs3 from '@/lib/images/projects/genbegna/genbegna-ss3.png'
+
 export interface Project {
   id: string
   displayName: string
   shortDescription: string
   techStack: string[]
-  imagePaths: string[]
+  imagePaths: (string | StaticImageData)[]
   caseStudyUrl: string
   nodePosition: { x: number; y: number }
-  category: 'frontend' | 'backend' | 'fullstack' | 'ai' | 'devops' | 'infrastructure' | 'research' | 'social' | 'ecommerce' | 'career'
+  category: 'frontend' | 'backend' | 'fullstack' | 'ai' | 'devops' | 'infrastructure' | 'research' | 'mobile' | 'ecommerce' | 'career' | 'algorithms' | 'gamedev'
   status: 'live' | 'production' | 'beta' | 'development' | 'prototype' | 'completed' | 'active' | 'ongoing' | 'current'
   demoUrl?: string
 }
@@ -17,7 +23,7 @@ export const projects: Project[] = [
     displayName: 'Toye Business OS',
     shortDescription: 'Multi-tenant SaaS platform supporting HR, Payroll, and Inventory Management with real-time analytics and executive dashboards.',
     techStack: ['NestJS', 'Prisma', 'PostgreSQL', 'Next.js', 'Tailwind CSS', 'Docker', 'Redis', 'NGINX'],
-    status: 'live',
+    status: 'ongoing',
     imagePaths: [
       '/images/projects/toye/dashboard.png',
       '/images/projects/toye/analytics.png',
@@ -32,7 +38,7 @@ export const projects: Project[] = [
     displayName: 'AlikoHub',
     shortDescription: 'Multi-service platform integrating education, consulting, and construction management with AWS deployment and CI/CD pipelines.',
     techStack: ['Node.js', 'Laravel', 'PostgreSQL', 'AWS', 'EC2', 'RDS', 'S3', 'NGINX', 'GitHub Actions'],
-    status: 'production',
+    status: 'ongoing',
     imagePaths: [
       '/images/projects/alikohub/dashboard.png',
       '/images/projects/alikohub/services.png',
@@ -47,7 +53,7 @@ export const projects: Project[] = [
     displayName: 'SSGI Journal Platform',
     shortDescription: 'Secure journal management system for 200+ researchers with OJS deployment, SMTP automation, and 99.9% uptime.',
     techStack: ['Open Journal Systems', 'Apache', 'MySQL', 'Ubuntu', 'VirtualBox'],
-    status: 'production',
+    status: 'active',
     imagePaths: [
       '/images/projects/ssgi/dashboard.png',
       '/images/projects/ssgi/submission.png',
@@ -61,8 +67,8 @@ export const projects: Project[] = [
     id: 'guade-ai',
     displayName: 'Guade AI',
     shortDescription: 'AI-powered children\'s cognitive skill app with real-time facial emotion analysis, parental dashboards, and TensorFlow CNN model.',
-    techStack: ['TensorFlow', 'Keras', 'FastAPI', 'Flutter', 'Next.js', 'Gemini API'],
-    status: 'production',
+    techStack: ['Flutter', 'TensorFlow', 'Keras', 'FastAPI', 'Next.js', 'Gemini API'],
+    status: 'completed',
     imagePaths: [
       '/images/projects/guade/emotion-analysis.png',
       '/images/projects/guade/dashboard.png',
@@ -71,14 +77,14 @@ export const projects: Project[] = [
     caseStudyUrl: '/projects/guade-ai',
     demoUrl: 'https://github.com/AASTUSoftwareEngineeringDepartment/Buddy',
     nodePosition: { x: 760, y: 80 },
-    category: 'ai'
+    category: 'mobile'
   },
   {
     id: 'yipper',
     displayName: 'Yipper',
     shortDescription: 'Full-stack microblogging platform with real-time posting, user feeds, and optimized performance achieving sub-100ms API latency.',
     techStack: ['Node.js', 'Express', 'SQLite', 'JavaScript', 'HTML', 'CSS'],
-    status: 'completed',
+    status: 'active',
     imagePaths: [
       '/images/projects/yipper/feed.png',
       '/images/projects/yipper/posting.png',
@@ -126,7 +132,7 @@ export const projects: Project[] = [
     displayName: 'Nate Shoe Shop',
     shortDescription: 'React-based e-commerce demo with advanced filtering, cart functionality, and Lighthouse performance score >90.',
     techStack: ['React', 'SASS', 'Vercel'],
-    status: 'completed',
+    status: 'live',
     imagePaths: [
       '/images/projects/shoeshop/storefront.png',
       '/images/projects/shoeshop/filtering.png',
@@ -142,7 +148,7 @@ export const projects: Project[] = [
     displayName: 'Secure Auth System',
     shortDescription: 'Node.js authentication system with Passport.js, bcrypt hashing, and CSRF protection achieving <80ms response times.',
     techStack: ['Node.js', 'Express', 'Passport.js', 'bcrypt', 'EJS'],
-    status: 'completed',
+    status: 'active',
     imagePaths: [
       '/images/projects/auth/login.png',
       '/images/projects/auth/registration.png',
@@ -168,6 +174,24 @@ export const projects: Project[] = [
     demoUrl: 'https://github.com/nattisam/BallBreakerGame',
     nodePosition: { x: 850, y: 550 },
     category: 'gamedev'
+  },
+  {
+    id: 'genbegna',
+    displayName: 'Genbegna',
+    shortDescription:
+      'Access platform handling construction projects, files, and contractors with multi-layered security.',
+    techStack: [
+      'Node.js',
+      'Express',
+      'SQLite (better-sqlite3)',
+      'bcrypt',
+    ],
+    status: 'active',
+    imagePaths: [genbegnaSs1, genbegnaSs2, genbegnaSs3],
+    caseStudyUrl: '/projects/genbegna',
+    demoUrl: 'https://github.com/nattisam/genbegna',
+    nodePosition: { x: 900, y: 240 },
+    category: 'backend'
   },
   {
     id: 'bst-implementation',

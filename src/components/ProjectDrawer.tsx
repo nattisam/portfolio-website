@@ -163,24 +163,23 @@ export default function ProjectDrawer({ isOpen, onClose, project }: ProjectDrawe
                     {project.imagePaths.slice(0, 3).map((imagePath, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + index * 0.1 }}
-                        className="aspect-video bg-background-tertiary rounded-lg border border-border overflow-hidden hover:border-accent/50 transition-all duration-300 hover:scale-105 cursor-pointer group"
+                        className="aspect-video rounded-lg border border-border overflow-hidden hover:border-accent/50 transition-all duration-300 hover:scale-105 relative bg-slate-900"
                       >
-                        <div className="w-full h-full bg-gradient-to-br from-accent/10 to-accent-secondary/10 flex items-center justify-center">
-                          <span className="text-xs text-foreground-muted group-hover:text-accent transition-colors">
-                            Screenshot {index + 1}
-                          </span>
-                        </div>
-                        {/* Placeholder for actual images */}
-                        {/* <Image
-                          src={screenshot}
+                        <Image
+                          src={imagePath}
                           alt={`${project.displayName} screenshot ${index + 1}`}
-                          width={200}
-                          height={120}
+                          width={360}
+                          height={200}
                           className="w-full h-full object-cover"
-                        /> */}
+                          priority={index === 0}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                        <span className="absolute bottom-2 left-3 text-xs text-foreground-muted uppercase tracking-wide">
+                          Screenshot {index + 1}
+                        </span>
                       </motion.div>
                     ))}
                   </div>

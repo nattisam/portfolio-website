@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { projects, Project } from '@/lib/projects'
 import Planet from './Planet'
@@ -15,46 +15,41 @@ interface SolarSystemProps {
 export default function SolarSystem({ onPlanetClick, onSunClick }: SolarSystemProps) {
   const [hoveredPlanet, setHoveredPlanet] = useState<string | null>(null)
   const [meteors, setMeteors] = useState<number[]>([])
-  
-  // Initialize with default dimensions
+
   const [dimensions, setDimensions] = useState({
     width: 1200,
     height: 800,
-    scale: 1,
-    sunSize: 140,
-    orbitSpacing: 100,
-    planetSize: 60
+    viewportScale: 1,
+    sunSize: 220,
+    orbitSpacing: 120,
+    planetSize: 70
   })
 
-  // Calculate dimensions function
   const calculateDimensions = () => {
     if (typeof window === 'undefined') return
     const width = window.innerWidth
     const height = window.innerHeight
-    const minDim = Math.min(width, height)
-    const scale = Math.min(minDim / 1200, 1)
+    const referenceWidth = 1400
+    const referenceHeight = 900
+    const viewportScale = Math.min(1, width / referenceWidth, height / referenceHeight)
     setDimensions({
       width,
       height,
-      scale,
-      sunSize: Math.max(120, 140 * scale),
-      orbitSpacing: Math.max(30, 100 * scale),
-      planetSize: Math.max(40, 60 * scale)
+      viewportScale,
+      sunSize: Math.max(50, 150 * viewportScale),
+      orbitSpacing: Math.max(30, 70 * viewportScale),
+      planetSize: Math.max(20, 50 * viewportScale)
     })
   }
 
-  // Set dimensions immediately on mount and on resize
-  useEffect(() => {
-    // Calculate on mount
+  useLayoutEffect(() => {
     calculateDimensions()
+  }, [])
 
-    // Handle window resize
-    const handleResize = () => {
-      calculateDimensions()
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+  useEffect(() => {
+    const resizeHandler = () => calculateDimensions()
+    window.addEventListener('resize', resizeHandler)
+    return () => window.removeEventListener('resize', resizeHandler)
   }, [])
 
   // Meteor spawning system
@@ -121,9 +116,9 @@ export default function SolarSystem({ onPlanetClick, onSunClick }: SolarSystemPr
     setMeteors(prev => prev.filter(id => id !== meteorId))
   }
 
-  // Move solar system slightly to top-left
-  const centerX = dims.width / 2 - dims.width * -0.05// 10% left of center
-  const centerY = dims.height / 2 - dims.height * 0.15 // 10% above center
+  // Move solar system slightly upward for better composition
+  const centerX = dims.width / 2
+  const centerY = dims.height / 2 - dims.height * 0.12
 
   return (
     <div className="relative w-full h-screen overflow-hidden" style={{ height: '100vh' }}>
@@ -194,8 +189,10 @@ export default function SolarSystem({ onPlanetClick, onSunClick }: SolarSystemPr
         )
 
         // If too close to sun, push it outward with larger buffer
-        if (distanceFromSun < sunRadius + planetRadius + 60) {
-          const pushFactor = (sunRadius + planetRadius + 120) / distanceFromSun
+        const extraBuffer = project.id === 'user-auth' ? 200 : 120
+        if (distanceFromSun < sunRadius + planetRadius + extraBuffer / 2) {
+          const minDistance = sunRadius + planetRadius + extraBuffer
+          const pushFactor = minDistance / Math.max(distanceFromSun, 1)
           planetX = centerX + (planetX - centerX) * pushFactor
           planetY = centerY + (planetY - centerY) * pushFactor
         }
