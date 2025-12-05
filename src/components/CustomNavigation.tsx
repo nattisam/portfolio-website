@@ -68,7 +68,7 @@ export default function CustomNavigation() {
                   />
                 </div>
                 <span className="text-sm text-foreground-muted font-medium hidden sm:block">
-                  Systems Architect
+                  Nathan Samson - Software Engineer
                 </span>
               </motion.div>
             </Link>

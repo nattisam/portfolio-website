@@ -3,90 +3,69 @@
 import { motion } from 'framer-motion'
 import { Card } from '@/ui/card'
 import { Button } from '@/ui/button'
-import { Calendar, MapPin, Building, Award, Code, Users } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 const experiences = [
   {
-    id: 'current',
-    company: 'Independent Systems Architect',
-    position: 'Senior Systems Architect',
-    period: '2024 - Present',
-    location: 'Remote',
-    type: 'Full-time',
-    description: 'Leading architecture design and implementation for enterprise-scale distributed systems. Specializing in cloud-native solutions, microservices architecture, and DevOps practices.',
+    id: 'toye',
+    company: 'Toye Business OS (Multi-Platform SaaS Ecosystem)',
+    position: 'Software Engineer',
+    period: '07/2025 – Present',
+    location: 'Addis Ababa, Ethiopia',
+    description:
+      'Architected a multi-tenant system that exposes HR, Payroll, and Inventory services through centralized APIs with modular services and dashboards.',
     achievements: [
-      'Architected and deployed 3+ production systems serving 100K+ users',
-      'Reduced system downtime by 95% through improved monitoring and automation',
-      'Mentored 5+ junior architects and developers',
-      'Established DevOps practices that improved deployment frequency by 300%'
+      'Engineered NestJS + Prisma + PostgreSQL backend delivering 30% faster API responses under enterprise loads.',
+      'Built the Executive HQ dashboard (Next.js + Tailwind) for real-time KPI analytics and cross-company insight.',
+      'Containerized services with Docker/Redis and load-balanced via NGINX while GitHub Actions handle CI/CD.',
+      'Implemented async worker queues for payroll processing, boosting throughput 45% and introducing automatic rollback safeguards.'
     ],
-    technologies: ['AWS', 'Kubernetes', 'Terraform', 'Python', 'Go', 'React'],
-    icon: Building
+    technologies: ['NestJS', 'Prisma', 'PostgreSQL', 'Next.js', 'Tailwind CSS', 'Docker', 'Redis', 'NGINX', 'GitHub Actions']
   },
   {
-    id: 'startup',
-    company: 'TechFlow Solutions',
-    position: 'Lead Backend Architect',
-    period: '2022 - 2024',
-    location: 'San Francisco, CA',
-    type: 'Full-time',
-    description: 'Led the technical architecture for a Series A startup building AI-powered workflow automation tools. Designed scalable systems handling millions of API requests daily.',
+    id: 'alikohub',
+    company: 'AlikoHub',
+    position: 'Project Manager / Lead Software Engineer',
+    period: '05/2025 – Present',
+    location: 'Addis Ababa, Ethiopia',
+    description:
+      'Led a five-person development team delivering a platform that merges education, consulting, and construction verticals with shared services.',
     achievements: [
-      'Designed and implemented microservices architecture scaling to 10M+ requests/day',
-      'Reduced API response times by 70% through performance optimization',
-      'Built and led a team of 8 engineers across frontend and backend',
-      'Implemented CI/CD pipelines reducing deployment time from days to minutes'
+      'Built backend APIs (Node.js, Laravel, PostgreSQL) ensuring concurrent-safe access with zero race conditions.',
+      'Reduced milestone slippage by 28.5% through disciplined ClickUp/GitHub Projects planning and retrospectives.',
+      'Outlined AWS deployment (EC2, RDS, S3) with NGINX load balancing and GitHub Actions pipelines for scalable releases.',
+      'Refined and standardized frontend components, achieving 40% faster production render speeds.'
     ],
-    technologies: ['Node.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'GraphQL'],
-    icon: Code
+    technologies: ['Node.js', 'Laravel', 'PostgreSQL', 'AWS', 'EC2', 'RDS', 'S3', 'NGINX', 'GitHub Actions']
   },
   {
-    id: 'enterprise',
-    company: 'GlobalTech Corporation',
-    position: 'Senior Software Engineer',
-    period: '2020 - 2022',
-    location: 'New York, NY',
-    type: 'Full-time',
-    description: 'Developed and maintained critical enterprise systems serving Fortune 500 clients. Focused on high-reliability systems and performance optimization.',
+    id: 'ssgi',
+    company: 'Space Science and Geospatial Institute (SSGI)',
+    position: 'Software Engineer Intern',
+    period: '06/2024 – 09/2024',
+    location: 'Addis Ababa, Ethiopia',
+    description:
+      'Engineered a secure journal platform on Open Journal Systems for 200+ researchers with role-based publishing workflows.',
     achievements: [
-      'Maintained 99.99% uptime for critical financial systems',
-      'Optimized database queries reducing response times by 80%',
-      'Led migration from monolithic to microservices architecture',
-      'Implemented automated testing reducing bug rates by 60%'
+      'Deployed OJS on Ubuntu within VirtualBox-protected environments, maintaining 99.9% uptime.',
+      'Prepared documentation that accelerated new user onboarding from 35 to 140 per week.',
+      'Set up SMTP automation for role-based submission notifications, increasing throughput by 60%.',
+      'Awarded Top-Performing Intern 2024 for leadership and full-cycle delivery.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Oracle', 'Kubernetes', 'Jenkins'],
-    icon: Users
-  },
-  {
-    id: 'early',
-    company: 'StartupXYZ',
-    position: 'Full Stack Developer',
-    period: '2018 - 2020',
-    location: 'Austin, TX',
-    type: 'Full-time',
-    description: 'Built MVPs and prototypes for early-stage startups. Gained experience in rapid prototyping, user feedback iteration, and scaling from zero to production.',
-    achievements: [
-      'Shipped 5+ MVPs from concept to production in 3 months each',
-      'Built systems scaling from 0 to 10K+ users',
-      'Established development processes and best practices',
-      'Conducted user interviews and iterated based on feedback'
-    ],
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Socket.io'],
-    icon: Award
+    technologies: ['Open Journal Systems', 'Apache', 'MySQL', 'Ubuntu', 'VirtualBox']
   }
 ]
 
 const skills = [
-  { category: 'Backend', technologies: ['Node.js', 'Python', 'Go', 'Java', 'PostgreSQL', 'Redis', 'GraphQL'] },
-  { category: 'Frontend', technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'] },
-  { category: 'Cloud & DevOps', technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'] },
-  { category: 'Architecture', technologies: ['Microservices', 'System Design', 'API Design', 'Scalability'] }
+  { category: 'Backend & APIs', technologies: ['Node.js', 'NestJS', 'Laravel', 'PostgreSQL', 'Redis'] },
+  { category: 'Frontend & Dashboards', technologies: ['React', 'Next.js', 'Tailwind CSS', 'Vite'] },
+  { category: 'Cloud & Automation', technologies: ['AWS', 'Docker', 'NGINX', 'GitHub Actions', 'CI/CD'] },
+  { category: 'Security & Reliability', technologies: ['MFA', 'Audit Logging', 'Worker Queues', 'Observability'] }
 ]
 
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8 py-24">
           <motion.div
@@ -101,7 +80,7 @@ export default function ExperiencePage() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-5xl md:text-7xl font-bold mb-6 text-gradient"
             >
-              Experience
+              Professional Experience
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -109,353 +88,66 @@ export default function ExperiencePage() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-xl text-foreground-muted leading-relaxed"
             >
-              A journey through systems architecture, engineering leadership, and technical innovation
+              Systems architecture, engineering leadership, and measurable impact across enterprise SaaS and research deployments.
             </motion.p>
           </motion.div>
         </div>
 
-        {/* Background Pattern */}
         <div className="absolute inset-0 -z-10 opacity-5">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent-secondary/10" />
         </div>
       </section>
 
-      {/* Experience Timeline */}
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold mb-20 text-center"
-            >
-              Journey Through Time
-            </motion.h2>
-
-            {/* Custom Timeline */}
-            <div className="relative">
-              {/* Central Timeline Axis */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent-secondary to-accent opacity-30" />
-
-              {/* Timeline Items */}
-              <div className="space-y-32">
-                {/* SSGI Internship */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative"
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-8 w-4 h-4 bg-accent rounded-full shadow-lg shadow-accent/50">
-                    <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-25" />
+          <div className="max-w-5xl mx-auto space-y-10">
+            {experiences.map((experience, index) => (
+              <motion.div
+                key={experience.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-background-secondary/80 border border-border rounded-3xl p-8 shadow-xl space-y-6"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-3xl font-bold text-gradient">{experience.company}</h3>
+                    <p className="text-xl text-foreground-muted">{experience.position}</p>
                   </div>
-
-                  {/* Content Container */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Side - Content */}
-                    <div className="lg:pr-12 lg:text-right">
-                      <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="bg-background-secondary/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 shadow-xl"
-                      >
-                        <div className="flex items-center justify-end gap-3 mb-4">
-                          <div className="text-right">
-                            <h3 className="text-2xl font-bold text-accent">Space Science & Geospatial Institute</h3>
-                            <p className="text-foreground-muted">Software Engineer Intern</p>
-                          </div>
-                          <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                            <Award className="w-6 h-6 text-accent" />
-                          </div>
-                        </div>
-
-                        <div className="space-y-4 text-foreground-muted">
-                          <p>Engineered and deployed a secure internal journal management platform using Open Journal Systems, enabling 200+ researchers to publish and access scientific works.</p>
-
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-end gap-2">
-                              <span className="text-sm">OJS Platform Deployment</span>
-                              <div className="w-2 h-2 bg-accent rounded-full" />
-                            </div>
-                            <div className="flex items-center justify-end gap-2">
-                              <span className="text-sm">SMTP Mail Automation</span>
-                              <div className="w-2 h-2 bg-accent rounded-full" />
-                            </div>
-                            <div className="flex items-center justify-end gap-2">
-                              <span className="text-sm">99.9% Uptime Achievement</span>
-                              <div className="w-2 h-2 bg-accent rounded-full" />
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-
-                    {/* Right Side - Date */}
-                    <motion.div
-                      initial={{ opacity: 0, x: 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
-                      className="lg:pl-12"
-                    >
-                      <div className="text-6xl font-bold text-gradient mb-2">2024</div>
-                      <div className="text-foreground-muted">Jun - Sep</div>
-                      <div className="flex items-center gap-2 mt-4">
-                        <MapPin className="w-4 h-4 text-accent" />
-                        <span className="text-sm text-foreground-muted">Addis Ababa, Ethiopia</span>
-                      </div>
-                      <div className="mt-2 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-medium inline-block">
-                        Top-Performing Intern 2024
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-
-                {/* AASTU Education */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative"
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-8 w-4 h-4 bg-accent-secondary rounded-full shadow-lg shadow-accent-secondary/50">
-                    <div className="absolute inset-0 bg-accent-secondary rounded-full animate-ping opacity-25" />
-                  </div>
-
-                  {/* Content Container */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Right Side - Date */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      className="lg:pr-12 lg:text-right"
-                    >
-                      <div className="text-6xl font-bold text-gradient mb-2">2016-2026</div>
-                      <div className="text-foreground-muted">Bachelor's Degree</div>
-                      <div className="flex items-center gap-2 mt-4 justify-end">
-                        <span className="text-sm text-foreground-muted">Addis Ababa, Ethiopia</span>
-                        <MapPin className="w-4 h-4 text-accent-secondary" />
-                      </div>
-                    </motion.div>
-
-                    {/* Left Side - Content */}
-                    <div className="lg:pl-12">
-                      <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className="bg-background-secondary/50 backdrop-blur-sm border border-accent-secondary/20 rounded-2xl p-8 shadow-xl"
-                      >
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-accent-secondary/10 rounded-xl flex items-center justify-center">
-                            <Code className="w-6 h-6 text-accent-secondary" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-accent-secondary">Addis Ababa Science & Technology University</h3>
-                            <p className="text-foreground-muted">BSc Software Engineering</p>
-                          </div>
-                        </div>
-
-                        <div className="space-y-4 text-foreground-muted">
-                          <p>Comprehensive engineering education with focus on systems design, algorithms, and practical software development.</p>
-
-                          <div className="space-y-2">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent-secondary rounded-full" />
-                              <span className="text-sm">Data Structures & Algorithms</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent-secondary rounded-full" />
-                              <span className="text-sm">Software Architecture</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent-secondary rounded-full" />
-                              <span className="text-sm">Database Systems</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent-secondary rounded-full" />
-                              <span className="text-sm">Cybersecurity & Distributed Systems</span>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
+                  <div className="text-right">
+                    <div className="text-xs uppercase tracking-widest text-foreground-muted">{experience.period}</div>
+                    <div className="text-sm text-foreground-muted flex items-center gap-1 justify-end">
+                      <MapPin className="w-4 h-4 text-accent" />
+                      {experience.location}
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Toye Experience */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative"
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-8 w-4 h-4 bg-accent-tertiary rounded-full shadow-lg shadow-accent-tertiary/50">
-                    <div className="absolute inset-0 bg-accent-tertiary rounded-full animate-ping opacity-25" />
-                  </div>
+                <p className="text-foreground-muted">{experience.description}</p>
 
-                  {/* Content Container */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Side - Content */}
-                    <div className="lg:pr-12 lg:text-right">
-                      <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="bg-background-secondary/50 backdrop-blur-sm border border-accent-tertiary/20 rounded-2xl p-8 shadow-xl"
-                      >
-                        <div className="flex items-center justify-end gap-3 mb-4">
-                          <div className="text-right">
-                            <h3 className="text-2xl font-bold text-accent-tertiary">Toye Business OS</h3>
-                            <p className="text-foreground-muted">Software Engineer</p>
-                          </div>
-                          <div className="w-12 h-12 bg-accent-tertiary/10 rounded-xl flex items-center justify-center">
-                            <Building className="w-6 h-6 text-accent-tertiary" />
-                          </div>
-                        </div>
+                <ul className="space-y-2 text-foreground-muted list-disc pl-6">
+                  {experience.achievements.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
 
-                        <div className="space-y-4 text-foreground-muted">
-                          <p>Architected a multi-tenant SaaS platform supporting HR, Payroll, and Inventory Management modules with centralized APIs and modular architecture.</p>
-
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-end gap-2">
-                              <span className="text-sm">NestJS + Prisma Backend</span>
-                              <div className="w-2 h-2 bg-accent-tertiary rounded-full" />
-                            </div>
-                            <div className="flex items-center justify-end gap-2">
-                              <span className="text-sm">30% Faster API Response Times</span>
-                              <div className="w-2 h-2 bg-accent-tertiary rounded-full" />
-                            </div>
-                            <div className="flex items-center justify-end gap-2">
-                              <span className="text-sm">Asynchronous Worker Queues</span>
-                              <div className="w-2 h-2 bg-accent-tertiary rounded-full" />
-                            </div>
-                          </div>
-
-                          <Button href="/projects/toye" variant="ghost" size="sm" className="mt-4">
-                            View Case Study →
-                          </Button>
-                        </div>
-                      </motion.div>
-                    </div>
-
-                    {/* Right Side - Date */}
-                    <motion.div
-                      initial={{ opacity: 0, x: 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
-                      className="lg:pl-12"
+                <div className="flex flex-wrap gap-2">
+                  {experience.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 text-xs rounded-full border border-border bg-background-tertiary text-foreground-muted"
                     >
-                      <div className="text-6xl font-bold text-gradient mb-2">2025</div>
-                      <div className="text-foreground-muted">Jul - Oct</div>
-                      <div className="flex items-center gap-2 mt-4">
-                        <MapPin className="w-4 h-4 text-accent-tertiary" />
-                        <span className="text-sm text-foreground-muted">Addis Ababa, Ethiopia</span>
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-
-                {/* AlikoHub Experience */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative"
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-8 w-5 h-5 bg-accent rounded-full shadow-lg shadow-accent/50">
-                    <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-25" />
-                  </div>
-
-                  {/* Content Container */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Right Side - Date */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      className="lg:pr-12 lg:text-right"
-                    >
-                      <div className="text-6xl font-bold text-gradient mb-2">2025</div>
-                      <div className="text-foreground-muted">May - Sep</div>
-                      <div className="flex items-center gap-2 mt-4 justify-end">
-                        <span className="text-sm text-foreground-muted">Addis Ababa, Ethiopia</span>
-                        <MapPin className="w-4 h-4 text-accent" />
-                      </div>
-                      <div className="mt-2 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-medium inline-block">
-                        Leadership Appreciation 2025
-                      </div>
-                    </motion.div>
-
-                    {/* Left Side - Content */}
-                    <div className="lg:pl-12">
-                      <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className="bg-background-secondary/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 shadow-xl"
-                      >
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                            <Users className="w-6 h-6 text-accent" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-accent">AlikoHub</h3>
-                            <p className="text-foreground-muted">Project Manager / Lead Software Engineer</p>
-                          </div>
-                        </div>
-
-                        <div className="space-y-4 text-foreground-muted">
-                          <p>Led a 5-member development team to design and build AlikoHub, a platform merging education, consulting, and construction services.</p>
-
-                          <div className="space-y-2">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent rounded-full" />
-                              <span className="text-sm">AWS Deployment (EC2, RDS, S3)</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent rounded-full" />
-                              <span className="text-sm">28.5% Reduction in Milestone Delays</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-accent rounded-full" />
-                              <span className="text-sm">40% Performance Improvement</span>
-                            </div>
-                          </div>
-
-                          <Button href="/projects/alikohub" variant="ghost" size="sm" className="mt-4">
-                            View Case Study →
-                          </Button>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Skills Section */}
       <section className="py-24 bg-background-secondary/20">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -478,9 +170,7 @@ export default function ExperiencePage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Card className="p-6 h-full">
-                    <h3 className="text-xl font-bold text-foreground mb-4">
-                      {skillGroup.category}
-                    </h3>
+                    <h3 className="text-xl font-bold text-foreground mb-4">{skillGroup.category}</h3>
                     <div className="flex flex-wrap gap-2">
                       {skillGroup.technologies.map((tech) => (
                         <motion.span
@@ -500,7 +190,6 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div
@@ -509,12 +198,9 @@ export default function ExperiencePage() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl font-bold mb-6">
-              Let's Build Something Together
-            </h2>
+            <h2 className="text-3xl font-bold mb-6">Let’s Build Something Together</h2>
             <p className="text-xl text-foreground-muted mb-8 leading-relaxed">
-              Ready to architect scalable systems or discuss engineering leadership?
-              I'd love to hear about your next big project.
+              Ready to architect scalable systems or discuss engineering leadership? I’m open for collaborations and new challenges.
             </p>
             <Button href="/contact" variant="primary" size="md">
               Get In Touch
@@ -525,3 +211,4 @@ export default function ExperiencePage() {
     </div>
   )
 }
+

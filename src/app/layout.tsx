@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Nathan Samson – Full Stack Engineer Portfolio',
+  title: 'Nathan Samson – Software Engineer Portfolio',
   description: 'Portfolio showcasing full stack development, AI systems, and platform architecture by Nathan Samson, a senior software engineer specializing in scalable distributed systems.',
   keywords: ['systems architect', 'software engineering', 'distributed systems', 'cloud architecture', 'portfolio'],
   authors: [{ name: 'Nathan Samson' }],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Nathan Samson – Full Stack Engineer Portfolio',
+    title: 'Nathan Samson – Software Engineer Portfolio',
     description: 'Portfolio showcasing full stack development, AI systems, and platform architecture by Nathan Samson, a senior software engineer specializing in scalable distributed systems.',
     url: 'https://nathansamson.dev',
     siteName: 'Nathan Samson Portfolio',
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Nathan Samson - Systems Architect Portfolio',
+        alt: 'Nathan Samson - Software Engineer Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nathan Samson – Systems Architect Portfolio',
+    title: 'Nathan Samson – Software Engineer Portfolio',
     description: 'Portfolio showcasing systems architecture, engineering excellence, and innovative solutions.',
     creator: '@nathan_samson',
     images: ['/og-image.png'],

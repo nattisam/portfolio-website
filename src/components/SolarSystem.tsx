@@ -311,7 +311,7 @@ export default function SolarSystem({ onPlanetClick, onSunClick }: SolarSystemPr
               }}
             >
               <div className="bg-slate-900/95 backdrop-blur-sm border border-cyan-400/50 rounded-lg px-4 py-3 shadow-2xl">
-                <div className="text-cyan-400 text-center">About Me</div>
+                <div className="text-white font-semibold text-sm text-center truncate">About Nathan</div>
               </div>
             </motion.div>
           )}

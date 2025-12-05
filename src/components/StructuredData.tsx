@@ -15,7 +15,7 @@ export default function StructuredData({ metadata, type = 'website' }: Structure
     author: {
       '@type': 'Person',
       name: 'Nathan Samson',
-      jobTitle: 'Systems Architect',
+      jobTitle: 'Software Engineer',
       url: 'https://nathansamson.dev',
     },
     publisher: {
@@ -23,18 +23,20 @@ export default function StructuredData({ metadata, type = 'website' }: Structure
       name: 'Nathan Samson',
     },
     ...(type === 'person' && {
-      jobTitle: 'Systems Architect',
+      jobTitle: 'Software Engineer',
       knowsAbout: [
+        'Full Stack Development',
+        'Project Management',
+        'AI Systems',
+        'Platform Architecture',
         'Systems Architecture',
         'Distributed Systems',
         'Cloud Computing',
-        'Software Engineering',
-        'DevOps',
         'Microservices',
       ],
       alumniOf: {
         '@type': 'EducationalOrganization',
-        name: 'Addis Ababa Institute of Technology',
+        name: 'Addis Ababa Science and Technology University',
       },
     }),
   }

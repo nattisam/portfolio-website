@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card } from '@/ui/card'
 import { Button } from '@/ui/button'
-import { Mail, MessageCircle, Calendar, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, MessageCircle, Calendar, MapPin, Github, Linkedin } from 'lucide-react'
 
 const contactMethods = [
   {
@@ -270,10 +270,6 @@ export default function ContactPage() {
                 {
                   question: "What types of projects interest you most?",
                   answer: "I'm particularly interested in scalable system architecture, DevOps transformations, and projects that push technical boundaries."
-                },
-                {
-                  question: "Can we discuss NDA-protected projects?",
-                  answer: "Of course. I'm happy to sign NDAs and discuss confidential projects or opportunities."
                 }
               ].map((faq, index) => (
                 <motion.div

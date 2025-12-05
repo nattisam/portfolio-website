@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Github, Linkedin, Mail, Globe, Sparkles } from 'lucide-react'
 import Image from 'next/image'
+import nathan from '@/lib/images/about/nathan.jpg'
 
 interface AboutModalProps {
   isOpen: boolean
@@ -70,19 +71,13 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                     
                     {/* Photo container */}
                     <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl">
-                      {/* Placeholder with gradient background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 flex items-center justify-center">
-                        <div className="text-6xl md:text-7xl font-bold text-white/90">NS</div>
-                      </div>
-                      
-                      {/* Uncomment and add your photo path here */}
-                      {/* <Image
-                        src="/profile-photo.jpg"
+                      <Image
+                        src={nathan}
                         alt="Nathan Samson"
                         fill
                         className="object-cover"
                         priority
-                      /> */}
+                      /> 
                     </div>
 
                     {/* Status indicator */}
@@ -109,7 +104,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                       <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-cyan-400 animate-pulse" />
                     </div>
                     <p className="text-xl md:text-2xl text-slate-300 font-mono mb-4">
-                      Full Stack Engineer
+                      Software Engineer
                     </p>
                     
                     {/* Social Links */}
@@ -140,7 +135,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                         <Linkedin className="w-5 h-5 text-blue-400" />
                       </motion.a>
                       <motion.a
-                        href="mailto:nathan@example.com"
+                        href="mailto:nattisam1@gmail.com"
                         whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         className="p-2.5 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 border border-purple-400/20 hover:border-purple-400/40 transition-all"

@@ -4,13 +4,13 @@ A modern, futuristic portfolio website built with Next.js 14, TypeScript, Tailwi
 
 ## Features
 
-- ⚡ Next.js 14 with App Router
-- 🎨 Tailwind CSS with custom dark theme and neon accents
-- 🎭 Framer Motion for smooth animations
-- 📝 MDX support for rich project case studies
-- 📱 Fully responsive design
-- 🌙 Dark theme by default
-- 🎯 TypeScript for type safety
+- Next.js 14 with App Router
+- Tailwind CSS with custom dark theme and neon accents
+- Framer Motion for smooth animations
+- MDX support for rich project case studies
+- Fully responsive design
+- Dark theme by default
+- TypeScript for type safety
 
 ## Getting Started
 

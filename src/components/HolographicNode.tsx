@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Project } from '@/lib/projects'
 
@@ -14,7 +14,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
   const [isHovered, setIsHovered] = useState(false)
 
 
-  // Get category-specific colors
   const getCategoryColors = (category: string) => {
     const colors = {
       frontend: { primary: 'from-cyan-400 to-blue-500', glow: 'shadow-cyan-400/50' },
@@ -35,7 +34,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
 
   const colors = getCategoryColors(project.category)
 
-  // Status indicator color
   const getStatusColor = (status: string) => {
     const statusColors = {
       live: 'bg-green-400',
@@ -69,7 +67,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
       onHoverEnd={() => setIsHovered(false)}
       onClick={() => onClick(project)}
     >
-      {/* Outer glow ring */}
       <motion.div
         className={`absolute -inset-2 rounded-xl bg-gradient-to-r ${colors.primary} opacity-0 blur-xl`}
         animate={{
@@ -79,7 +76,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
         transition={{ duration: 0.3 }}
       />
 
-      {/* Sci-fi energy field */}
       <motion.div
         className="absolute inset-0 rounded-xl"
         animate={{
@@ -90,7 +86,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
         transition={{ duration: 0.6, ease: "easeInOut" }}
       />
 
-      {/* Main holographic container */}
       <motion.div
         className="relative w-48 h-32 rounded-xl overflow-hidden backdrop-blur-sm border border-white/10"
         animate={{
@@ -100,7 +95,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        {/* Animated background gradient */}
         <motion.div
           className={`absolute inset-0 bg-gradient-to-br ${colors.primary} opacity-20`}
           animate={{
@@ -112,7 +106,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
           }}
         />
 
-        {/* Holographic grid overlay */}
         <div className="absolute inset-0 opacity-30">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
@@ -124,7 +117,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
           </svg>
         </div>
 
-        {/* Neon border animation */}
         <motion.div
           className="absolute inset-0 rounded-xl"
           style={{
@@ -143,9 +135,7 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
           <div className="w-full h-full rounded-xl bg-slate-900/80 backdrop-blur-sm" />
         </motion.div>
 
-        {/* Content */}
         <div className="relative z-10 p-4 h-full flex flex-col justify-between">
-          {/* Header */}
           <div className="flex items-start justify-between">
             <div className="flex-1 min-w-0">
               <motion.h3
@@ -161,7 +151,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
               <p className="text-xs text-slate-300 capitalize">{project.category}</p>
             </div>
 
-            {/* Status indicator */}
             <motion.div
               className={`w-2 h-2 rounded-full ${statusColor} flex-shrink-0 ml-2`}
               animate={{
@@ -172,7 +161,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
             />
           </div>
 
-          {/* Tech stack preview */}
           <div className="flex flex-wrap gap-1 mt-2">
             {project.techStack.slice(0, 3).map((tech, index) => (
               <motion.span
@@ -193,7 +181,6 @@ export default function HolographicNode({ project, onClick, delay = 0 }: Hologra
           </div>
         </div>
 
-        {/* Hover indicator */}
         <motion.div
           className="absolute bottom-2 right-2 w-1 h-1 bg-cyan-400 rounded-full"
           animate={{

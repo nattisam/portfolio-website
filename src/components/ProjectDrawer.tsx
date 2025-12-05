@@ -1,9 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/ui/button'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 
 interface ProjectDrawerProps {
   isOpen: boolean
@@ -23,6 +24,8 @@ interface ProjectDrawerProps {
 
 export default function ProjectDrawer({ isOpen, onClose, project }: ProjectDrawerProps) {
   if (!project) return null
+  const [lightboxImage, setLightboxImage] = useState<string | StaticImageData | undefined>(undefined)
+  const [imageLoading, setImageLoading] = useState(true)
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
@@ -75,7 +78,8 @@ export default function ProjectDrawer({ isOpen, onClose, project }: ProjectDrawe
   }
 
   return (
-    <AnimatePresence>
+    <>
+      <AnimatePresence>
       {isOpen && (
         <>
           {/* Backdrop */}
@@ -166,18 +170,35 @@ export default function ProjectDrawer({ isOpen, onClose, project }: ProjectDrawe
                         initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + index * 0.1 }}
-                        className="aspect-video rounded-lg border border-border overflow-hidden hover:border-accent/50 transition-all duration-300 hover:scale-105 relative bg-slate-900"
+                        whileHover={{ scale: 1.05 }}
+                        className="group aspect-video rounded-lg border border-border overflow-hidden transition-all duration-300 relative bg-slate-900 shadow-lg hover:border-accent/50 hover:shadow-xl hover:shadow-accent/20 cursor-pointer"
                       >
+                        <button
+                          onClick={() => {
+                            setImageLoading(true)
+                            setLightboxImage(imagePath)
+                          }}
+                          className="absolute inset-0 z-20 cursor-pointer"
+                          aria-label={`Open screenshot ${index + 1}`}
+                        />
                         <Image
                           src={imagePath}
                           alt={`${project.displayName} screenshot ${index + 1}`}
                           width={360}
                           height={200}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           priority={index === 0}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                        <span className="absolute bottom-2 left-3 text-xs text-foreground-muted uppercase tracking-wide">
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                          <div className="bg-accent/20 backdrop-blur-sm rounded-full p-3 border border-accent/50">
+                            <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                            </svg>
+                          </div>
+                        </div>
+                        <span className="absolute bottom-2 left-3 z-10 text-xs text-foreground-muted uppercase tracking-wide group-hover:text-accent transition-colors duration-300">
                           Screenshot {index + 1}
                         </span>
                       </motion.div>
@@ -263,6 +284,60 @@ export default function ProjectDrawer({ isOpen, onClose, project }: ProjectDrawe
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[110] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            onClick={() => setLightboxImage(undefined)}
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-[min(90vw,900px)] h-[min(90vh,90vw)] rounded-2xl overflow-hidden bg-slate-900 shadow-2xl"
+              onClick={(event) => event.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setLightboxImage(undefined)}
+                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm border border-white/20 transition-all duration-200 hover:scale-110"
+                aria-label="Close lightbox"
+              >
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Loading spinner */}
+              {imageLoading && (
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className="w-12 h-12 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+                </div>
+              )}
+
+              {/* Optimized image */}
+              <Image
+                src={lightboxImage}
+                alt="Project screenshot"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 900px"
+                quality={75}
+                priority
+                onLoad={() => setImageLoading(false)}
+                onLoadingComplete={() => setImageLoading(false)}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

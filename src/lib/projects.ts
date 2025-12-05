@@ -1,5 +1,35 @@
 import type { StaticImageData } from 'next/image'
 
+import toyeSs1 from '@/lib/images/projects/toye/toye-ss1.png'
+import toyeSs2 from '@/lib/images/projects/toye/toye-ss2.png'
+import toyeSs3 from '@/lib/images/projects/toye/toye-ss3.png'
+import alikohubSs1 from '@/lib/images/projects/alikohub/alikohub-ss1.png'
+import alikohubSs2 from '@/lib/images/projects/alikohub/alikohub-ss2.png'
+import alikohubSs3 from '@/lib/images/projects/alikohub/alikohub-ss3.png'
+import ssgiSs1 from '@/lib/images/projects/ssgi/ssgi-ss1.png'
+import ssgiSs2 from '@/lib/images/projects/ssgi/ssgi-ss2.png'
+import ssgiSs3 from '@/lib/images/projects/ssgi/ssgi-ss3.png'
+import guadeSs1 from '@/lib/images/projects/guade/guade-ss1.png'
+import guadeSs2 from '@/lib/images/projects/guade/guade-ss2.png'
+import guadeSs3 from '@/lib/images/projects/guade/guade-ss3.png'
+import yipperSs1 from '@/lib/images/projects/yipper/yipper-ss1.png'
+import yipperSs2 from '@/lib/images/projects/yipper/yipper-ss2.png'
+import yipperSs3 from '@/lib/images/projects/yipper/yipper-ss3.png'
+import assisterSs1 from '@/lib/images/projects/assister/assister-ss1.png'
+import assisterSs2 from '@/lib/images/projects/assister/assister-ss2.png'
+import assisterSs3 from '@/lib/images/projects/assister/assister-ss3.png'
+import nateshoeshopSs1 from '@/lib/images/projects/nateshoeshop/nateshoeshop-ss1.png'
+import nateshoeshopSs2 from '@/lib/images/projects/nateshoeshop/nateshoeshop-ss2.png'
+import nateshoeshopSs3 from '@/lib/images/projects/nateshoeshop/nateshoeshop-ss3.png'
+import userAuthSs1 from '@/lib/images/projects/userauth/userauth-ss1.png'
+import userAuthSs2 from '@/lib/images/projects/userauth/userauth-ss2.png'
+import userAuthSs3 from '@/lib/images/projects/userauth/userauth-ss3.png'
+import ballBreakerSs1 from '@/lib/images/projects/ballbreaker/ballbreaker-ss1.png'
+import ballBreakerSs2 from '@/lib/images/projects/ballbreaker/ballbreaker-ss2.png'
+import ballBreakerSs3 from '@/lib/images/projects/ballbreaker/ballbreaker-ss3.png'
+import bstSs1 from '@/lib/images/projects/bst/bst-ss1.png'
+import bstSs2 from '@/lib/images/projects/bst/bst-ss2.png'
+import bstSs3 from '@/lib/images/projects/bst/bst-ss3.png'
 import genbegnaSs1 from '@/lib/images/projects/genbegna/genbegna-ss1.png'
 import genbegnaSs2 from '@/lib/images/projects/genbegna/genbegna-ss2.png'
 import genbegnaSs3 from '@/lib/images/projects/genbegna/genbegna-ss3.png'
@@ -12,7 +42,7 @@ export interface Project {
   imagePaths: (string | StaticImageData)[]
   caseStudyUrl: string
   nodePosition: { x: number; y: number }
-  category: 'frontend' | 'backend' | 'fullstack' | 'ai' | 'devops' | 'infrastructure' | 'research' | 'mobile' | 'ecommerce' | 'career' | 'algorithms' | 'gamedev'
+  category: 'frontend' | 'backend' | 'fullstack' | 'ai' | 'devops' | 'infrastructure' | 'project-management' | 'mobile' | 'ecommerce' | 'career' | 'algorithms' | 'gamedev'
   status: 'live' | 'production' | 'beta' | 'development' | 'prototype' | 'completed' | 'active' | 'ongoing' | 'current'
   demoUrl?: string
 }
@@ -24,11 +54,7 @@ export const projects: Project[] = [
     shortDescription: 'Multi-tenant SaaS platform supporting HR, Payroll, and Inventory Management with real-time analytics and executive dashboards.',
     techStack: ['NestJS', 'Prisma', 'PostgreSQL', 'Next.js', 'Tailwind CSS', 'Docker', 'Redis', 'NGINX'],
     status: 'ongoing',
-    imagePaths: [
-      '/images/projects/toye/dashboard.png',
-      '/images/projects/toye/analytics.png',
-      '/images/projects/toye/hr.png'
-    ],
+    imagePaths: [toyeSs1, toyeSs2, toyeSs3],
     caseStudyUrl: '/projects/toye',
     nodePosition: { x: 300, y: 80 },
     category: 'fullstack'
@@ -39,14 +65,10 @@ export const projects: Project[] = [
     shortDescription: 'Multi-service platform integrating education, consulting, and construction management with AWS deployment and CI/CD pipelines.',
     techStack: ['Node.js', 'Laravel', 'PostgreSQL', 'AWS', 'EC2', 'RDS', 'S3', 'NGINX', 'GitHub Actions'],
     status: 'ongoing',
-    imagePaths: [
-      '/images/projects/alikohub/dashboard.png',
-      '/images/projects/alikohub/services.png',
-      '/images/projects/alikohub/deployment.png'
-    ],
+    imagePaths: [alikohubSs1, alikohubSs2, alikohubSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/alikohub',
     nodePosition: { x: 80, y: 300 },
-    category: 'fullstack'
+    category: 'project-management'
   },
   {
     id: 'ssgi',
@@ -54,11 +76,7 @@ export const projects: Project[] = [
     shortDescription: 'Secure journal management system for 200+ researchers with OJS deployment, SMTP automation, and 99.9% uptime.',
     techStack: ['Open Journal Systems', 'Apache', 'MySQL', 'Ubuntu', 'VirtualBox'],
     status: 'active',
-    imagePaths: [
-      '/images/projects/ssgi/dashboard.png',
-      '/images/projects/ssgi/submission.png',
-      '/images/projects/ssgi/security.png'
-    ],
+    imagePaths: [ssgiSs1, ssgiSs2, ssgiSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/ssgi',
     nodePosition: { x: 520, y: 300 },
     category: 'backend'
@@ -69,11 +87,7 @@ export const projects: Project[] = [
     shortDescription: 'AI-powered children\'s cognitive skill app with real-time facial emotion analysis, parental dashboards, and TensorFlow CNN model.',
     techStack: ['Flutter', 'TensorFlow', 'Keras', 'FastAPI', 'Next.js', 'Gemini API'],
     status: 'completed',
-    imagePaths: [
-      '/images/projects/guade/emotion-analysis.png',
-      '/images/projects/guade/dashboard.png',
-      '/images/projects/guade/learning.png'
-    ],
+    imagePaths: [guadeSs1, guadeSs2, guadeSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/guade-ai',
     demoUrl: 'https://github.com/AASTUSoftwareEngineeringDepartment/Buddy',
     nodePosition: { x: 760, y: 80 },
@@ -85,31 +99,11 @@ export const projects: Project[] = [
     shortDescription: 'Full-stack microblogging platform with real-time posting, user feeds, and optimized performance achieving sub-100ms API latency.',
     techStack: ['Node.js', 'Express', 'SQLite', 'JavaScript', 'HTML', 'CSS'],
     status: 'active',
-    imagePaths: [
-      '/images/projects/yipper/feed.png',
-      '/images/projects/yipper/posting.png',
-      '/images/projects/yipper/profile.png'
-    ],
+    imagePaths: [yipperSs1, yipperSs2, yipperSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/yipper',
     demoUrl: 'https://github.com/nattisam/yipper.git',
     nodePosition: { x: 100, y: 520 },
     category: 'fullstack'
-  },
-  {
-    id: 'testvalley-clone',
-    displayName: 'Testvalley Clone',
-    shortDescription: 'UI/UX replication project with responsive design, lazy loading, and 95+ Lighthouse accessibility score.',
-    techStack: ['React', 'JSON', 'CSS', 'GitHub Pages'],
-    status: 'completed',
-    imagePaths: [
-      '/images/projects/testvalley/homepage.png',
-      '/images/projects/testvalley/products.png',
-      '/images/projects/testvalley/responsive.png'
-    ],
-    caseStudyUrl: '/projects/testvalley-clone',
-    demoUrl: 'https://github.com/nattisam/TestvalleyWebClone',
-    nodePosition: { x: 400, y: 520 },
-    category: 'frontend'
   },
   {
     id: 'assister',
@@ -117,11 +111,7 @@ export const projects: Project[] = [
     shortDescription: 'AI-powered refugee aid platform with LLM symptom checker, multilingual emergency alerts, and geolocation services.',
     techStack: ['React Native', 'Firebase', 'MongoDB', 'OpenAI API'],
     status: 'production',
-    imagePaths: [
-      '/images/projects/assister/chat.png',
-      '/images/projects/assister/symptoms.png',
-      '/images/projects/assister/alerts.png'
-    ],
+    imagePaths: [assisterSs1, assisterSs2, assisterSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/assister',
     demoUrl: 'https://github.com/nattisam/Refugee-Assister',
     nodePosition: { x: 640, y: 400 },
@@ -133,11 +123,7 @@ export const projects: Project[] = [
     shortDescription: 'React-based e-commerce demo with advanced filtering, cart functionality, and Lighthouse performance score >90.',
     techStack: ['React', 'SASS', 'Vercel'],
     status: 'live',
-    imagePaths: [
-      '/images/projects/shoeshop/storefront.png',
-      '/images/projects/shoeshop/filtering.png',
-      '/images/projects/shoeshop/cart.png'
-    ],
+    imagePaths: [nateshoeshopSs1, nateshoeshopSs2, nateshoeshopSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/nateshoeshop',
     demoUrl: 'https://nateshoeshop.vercel.app/',
     nodePosition: { x: 250, y: 650 },
@@ -149,11 +135,7 @@ export const projects: Project[] = [
     shortDescription: 'Node.js authentication system with Passport.js, bcrypt hashing, and CSRF protection achieving <80ms response times.',
     techStack: ['Node.js', 'Express', 'Passport.js', 'bcrypt', 'EJS'],
     status: 'active',
-    imagePaths: [
-      '/images/projects/auth/login.png',
-      '/images/projects/auth/registration.png',
-      '/images/projects/auth/security.png'
-    ],
+    imagePaths: [userAuthSs1, userAuthSs2, userAuthSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/user-auth',
     demoUrl: 'https://github.com/nattisam/UserAuthentication',
     nodePosition: { x: 50, y: 720 },
@@ -165,11 +147,7 @@ export const projects: Project[] = [
     shortDescription: 'OpenGL arcade game with collision physics, paddle controls, and optimized 60 FPS rendering performance.',
     techStack: ['C++', 'OpenGL'],
     status: 'completed',
-    imagePaths: [
-      '/images/projects/ballbreaker/gameplay.png',
-      '/images/projects/ballbreaker/physics.png',
-      '/images/projects/ballbreaker/controls.png'
-    ],
+    imagePaths: [ballBreakerSs1, ballBreakerSs2, ballBreakerSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/ball-breaker',
     demoUrl: 'https://github.com/nattisam/BallBreakerGame',
     nodePosition: { x: 850, y: 550 },
@@ -199,11 +177,7 @@ export const projects: Project[] = [
     shortDescription: 'C++ BST implementation with O(log n) operations, recursive traversal, and memory-safe dynamic allocation.',
     techStack: ['C++', 'Makefile'],
     status: 'completed',
-    imagePaths: [
-      '/images/projects/bst/structure.png',
-      '/images/projects/bst/operations.png',
-      '/images/projects/bst/performance.png'
-    ],
+    imagePaths: [bstSs1, bstSs2, bstSs3], // TODO: Change to actual images
     caseStudyUrl: '/projects/bst-implementation',
     demoUrl: 'https://github.com/nattisam/BinarySearchTreeImplementation',
     nodePosition: { x: 700, y: 720 },
