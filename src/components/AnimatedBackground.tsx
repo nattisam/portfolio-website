@@ -32,8 +32,10 @@ export default function AnimatedBackground() {
       color: string
 
       constructor() {
-        this.x = Math.random() * canvasEl.width
-        this.y = Math.random() * canvasEl.height
+        const w = canvasEl?.width ?? 0
+        const h = canvasEl?.height ?? 0
+        this.x = Math.random() * w
+        this.y = Math.random() * h
         this.vx = (Math.random() - 0.5) * 0.5
         this.vy = (Math.random() - 0.5) * 0.5
         this.size = Math.random() * 2 + 0.5
@@ -46,10 +48,12 @@ export default function AnimatedBackground() {
         this.y += this.vy
 
         // Wrap around edges
-        if (this.x < 0) this.x = canvasEl.width
-        if (this.x > canvasEl.width) this.x = 0
-        if (this.y < 0) this.y = canvasEl.height
-        if (this.y > canvasEl.height) this.y = 0
+        const w = canvasEl?.width ?? 0
+        const h = canvasEl?.height ?? 0
+        if (this.x < 0) this.x = w
+        if (this.x > w) this.x = 0
+        if (this.y < 0) this.y = h
+        if (this.y > h) this.y = 0
 
         // Subtle opacity pulsing
         this.opacity += Math.sin(Date.now() * 0.001 + this.x * 0.01) * 0.01
@@ -84,7 +88,9 @@ export default function AnimatedBackground() {
     // Animation loop
     const animate = () => {
       ctx.fillStyle = 'rgba(2, 6, 23, 0.1)' // Very subtle fade
-      ctx.fillRect(0, 0, canvasEl.width, canvasEl.height)
+      const w = canvasEl?.width ?? 0
+      const h = canvasEl?.height ?? 0
+      ctx.fillRect(0, 0, w, h)
 
       particles.forEach(particle => {
         particle.update()

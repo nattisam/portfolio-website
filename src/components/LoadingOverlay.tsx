@@ -1,13 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, Rocket } from 'lucide-react'
 
 export default function LoadingOverlay() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export default function LoadingOverlay() {
     }, 500)
 
     return () => clearTimeout(timer)
-  }, [pathname, searchParams])
+  }, [pathname])
 
   return (
     <AnimatePresence mode="wait">

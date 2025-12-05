@@ -55,11 +55,9 @@ class ErrorBoundary extends Component<Props, State> {
                 <RefreshCw className="w-4 h-4" />
                 Try Again
               </Button>
-              <Button asChild variant="outline">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Go Home
-                </Link>
+              <Button href="/" variant="secondary" className="flex items-center gap-2">
+                <Home className="w-4 h-4" />
+                Go Home
               </Button>
             </div>
 
