@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Github, Linkedin, Mail, Globe, Sparkles } from 'lucide-react'
 import Image from 'next/image'
-import nathan from '@/lib/images/about/nathan.jpg'
+import nathan from '@/lib/images/about/nathan.JPG'
 
 interface AboutModalProps {
   isOpen: boolean

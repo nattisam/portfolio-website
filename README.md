@@ -61,7 +61,7 @@ src/
 
 ## Deployment
 
-This project is optimized for Vercel deployment. Simply push to your repository and deploy on Vercel.
+This project is optimized for Vercel deployment.
 
 ## License
 
